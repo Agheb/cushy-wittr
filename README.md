@@ -2,35 +2,25 @@
 
 This is a silly little demo app for an offline-first course.
 
-# Installing
+# Prerequisite
 
-Dependencies:
+* You have Docker and Docker-Compose installed (Docker for Mac, Docker for Windows, get.docker.com and manual Compose installed for Linux).
+* For older Windows and Mac Systems use Docker-Toolbox 
 
-* [Node.js](https://nodejs.org/en/) v0.12.7 or above
+Then navigate to your repo directory and from there run the following:
 
-Then check out the project and run:
-
-```sh
-npm install
-```
-
-# Running
+# Build
 
 ```sh
-npm run serve
+docker-compose build
 ```
-
-You should now have the app server at [localhost:8888](http://localhost:8888) and the config server at [localhost:8889](http://localhost:8888).
-
-You can also configure the ports:
+# Start Container
 
 ```sh
-npm run serve -- --server-port=8000 --config-server-port=8001
+docker-compose up
 ```
+# Stop Container
 
-# Troubleshooting
-
-- Errors while executing `npm run serve`
-  - The first thing to try is to upgrade to latest version of node
-  - If latest version also produces errors, try installing v4.5.0
-    - An easy for that would be to use `nvm` as discussed [here](http://stackoverflow.com/a/7718438/1585523)
+```sh
+docker-compose down
+```
