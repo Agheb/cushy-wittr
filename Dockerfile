@@ -5,11 +5,12 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Install app dependencies
-COPY ./* /usr/src/app/
+ADD package.json /usr/src/app/package.json
 RUN npm install
 
-# Bundle app source
-COPY . /usr/src/app
+
+VOLUME /usr/src/app
+VOLUME /usr/src/node_modules
 
 EXPOSE 8888 8889
-CMD [ "npm", "run", "serve" ]
+CMD ["npm", "run","serve"]

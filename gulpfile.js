@@ -119,10 +119,10 @@ gulp.task('templates:server', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['public/scss/**/*.scss'], ['css']);
-  gulp.watch(['templates/*.hbs'], ['templates:server']);
-  gulp.watch(['server/**/*.js'], ['js:server']);
-  gulp.watch(['public/imgs/**/*', 'public/avatars/**/*', 'server/*.txt', 'public/*.json'], ['copy']);
+  gulp.watch(['public/scss/**/*.scss'],{interval: 1000, usePolling: true}, ['css']);
+  gulp.watch(['templates/*.hbs'],{interval: 1000, usePolling: true}, ['templates:server']);
+  gulp.watch(['server/**/*.js'],{interval: 1000, usePolling: true}, ['js:server']);
+  gulp.watch(['public/imgs/**/*', 'public/avatars/**/*', 'server/*.txt', 'public/*.json'],{interval: 1000, usePolling: true}, ['copy']);
 
   Object.keys(jsBundles).forEach(function(key) {
     var b = jsBundles[key];
@@ -141,7 +141,7 @@ gulp.task('server', function() {
 
   gulp.watch([
     'build/server/**/*.js'
-  ], plugins.developServer.restart);
+  ],{interval: 1000, usePolling: true}, plugins.developServer.restart);
 });
 
 gulp.task('serve', function(callback) {
